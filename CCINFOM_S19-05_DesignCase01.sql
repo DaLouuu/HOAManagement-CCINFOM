@@ -389,6 +389,7 @@ CREATE TABLE IF NOT EXISTS sticker (
 -- -----------------------------------------------------
 -- Table hoaofficer_sched
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS hoaofficer_sched;
 CREATE TABLE IF NOT EXISTS hoaofficer_sched (
   officer_id	INT(5) NOT NULL,
   sched_time	ENUM('AM', 'PM') NOT NULL,
@@ -837,7 +838,7 @@ INSERT INTO	officer_positions (position_name)
 -- Add records to elections
 -- -----------------------------------------------------
 INSERT INTO	elections (elec_date, venue, quorum, witness_lastname, witness_firstname, witness_mi, witness_mobile, hoa_name)
-	VALUES	('2022-1-12', 'Animo Clubhouse', 0, 'Aquino', 'Melchora', 'B',9172001434, 'Animo HOA'),
+	VALUES	('2022-01-12', 'Animo Clubhouse', 0, 'Aquino', 'Melchora', 'B',9172001434, 'Animo HOA'),
 			('2022-11-19', 'Animo Clubhouse', 0, 'Del Pilar', 'Gregorio', 'A',9224657809, 'Animo HOA'),
 			('2022-11-26', 'Animo Clubhouse', 1, 'Balagtas', 'Francisco', 'K',9224657809, 'Animo HOA');
 
@@ -921,7 +922,7 @@ INSERT INTO	receipt (or_no, transact_date, total_amount)
 -- -----------------------------------------------------
 INSERT INTO	resident_idcard (resident_idcardno, date_requested, request_reason, date_issued, authorizing_officer, or_no, amount_paid, id_status, resident_id)
 	VALUES	('ANIMO22001', '2022-01-30', 'New ID', '2022-02-04', 99902, NULL, 0.00, 'Active', 40013),
-			('ANIMO22002', '2022-02-20-', 'New ID', '2022-02-04-', 99902, NULL, 0.00, 'Active', 40011),
+			('ANIMO22002', '2022-02-20', 'New ID', '2022-02-04', 99902, NULL, 0.00, 'Active', 40011),
             ('ANIMO22003', '2022-02-20', 'New ID', '2022-02-04', 99902, NULL, 0.00, 'Active', 40012),
             ('ANIMO22004', '2022-03-15', 'New ID', '2022-03-20', 99902, NULL, 0.00, 'Active', 40014), 
 			('ANIMO22005', '2022-03-25', 'New ID', '2022-03-30', 99902, NULL, 0.00, 'Active', 40015);
@@ -985,7 +986,7 @@ INSERT INTO	commercial_prop (property_code, commercial_type, commercial_maxten)
 INSERT INTO	residential_prop (property_code, household_id)
 	VALUES	('B35L02', 42001),
 			('B11L08', 42002),
-            ('B42l09', 42003),
+            ('B42L09', 42003),
             ('B25L10', 42004);
 
 -- -----------------------------------------------------

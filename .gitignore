@@ -1,0 +1,35 @@
+# Operating System files
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+.DS_Store
+.Spotlight-V100
+.Trashes
+
+# Editor & IDE Directories
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+*~
+
+# MySQL & Database temporary files
+*.sql.bak
+*.mwb.bak
+*.tmp
+*.log
+
+# Node / Web dependencies (if frontend added)
+node_modules/
+dist/
+build/
+.next/
+.env
+.env.local
+.env.*.local
