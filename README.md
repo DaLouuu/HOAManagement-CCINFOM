@@ -95,9 +95,9 @@ hoa_db
 ## 🗺️ Entity Relationship Diagram (ERD)
 
 The repository provides the complete data model in multiple formats:
-- **Visual Diagram**: `CCINFOM_S19-05_DesignCase01.png` — High-resolution exported ERD visualization showing entity cardinalities, foreign key connections, and primary keys.
-- **Workbench Model**: `CCINFOM_S19-05_DesignCase01.mwb` — Native MySQL Workbench model file for visual inspection and forward/reverse engineering.
-- **Data Dictionary**: `CCINFOM_S19-05_DesignCase01.xlsx` — Table structures, attribute types, nullable flags, keys, and descriptions.
+- **Visual Diagram**: `docs/erd/CCINFOM_S19-05_DesignCase01.png` — High-resolution exported ERD visualization showing entity cardinalities, foreign key connections, and primary keys.
+- **Workbench Model**: `docs/erd/CCINFOM_S19-05_DesignCase01.mwb` — Native MySQL Workbench model file for visual inspection and forward/reverse engineering.
+- **Data Dictionary**: `docs/data_dictionary/CCINFOM_S19-05_DesignCase01.xlsx` — Table structures, attribute types, nullable flags, keys, and descriptions.
 
 ---
 
@@ -109,32 +109,32 @@ The repository provides the complete data model in multiple formats:
 
 ---
 
-## 📂 Suggested Folder Hierarchy
+## 📂 Project Folder Hierarchy
 
-### 1. Recommended Structural Refactoring for Current Assets
-To transition from a flat single-folder repository to an organized, standard database project:
+### Current Structural Organization
+The repository is organized according to standard enterprise database project conventions:
 
 ```text
 HOAManagement-CCINFOM/
 ├── .gitignore                          # Git ignore rules for OS and temp files
-├── README.md                           # Project documentation
+├── README.md                           # Master project documentation
 │
 ├── database/                           # Database scripts and schemas
-│   ├── schema.sql                      # Complete DDL script (tables, constraints, triggers)
-│   ├── seed_data.sql                   # Sample test data (DML inserts)
-│   └── CCINFOM_S19-05_DesignCase01.sql # Full consolidated deployment script
+│   ├── schema.sql                      # DDL schema definition (tables, constraints, drops)
+│   ├── seed_data.sql                   # DML sample records (inserts)
+│   └── CCINFOM_S19-05_DesignCase01.sql # Consolidated all-in-one deployment script
 │
-├── docs/                               # Project design documentation
-│   ├── erd/
-│   │   ├── CCINFOM_S19-05_DesignCase01.png  # High-resolution ERD diagram
-│   │   └── CCINFOM_S19-05_DesignCase01.mwb  # MySQL Workbench model
-│   ├── data_dictionary/
-│   │   └── CCINFOM_S19-05_DesignCase01.xlsx # Detailed attribute dictionary
-│   └── reports/
-│       └── CCINFOM_S19-05_DesignCase01.pdf  # Design case formal report
+└── docs/                               # Project design documentation
+    ├── erd/
+    │   ├── CCINFOM_S19-05_DesignCase01.png  # High-resolution ERD diagram
+    │   └── CCINFOM_S19-05_DesignCase01.mwb  # MySQL Workbench model
+    ├── data_dictionary/
+    │   └── CCINFOM_S19-05_DesignCase01.xlsx # Detailed attribute dictionary
+    └── reports/
+        └── CCINFOM_S19-05_DesignCase01.pdf  # Design case formal report
 ```
 
-### 2. Full-Stack Application Hierarchy (Future Development)
+### Full-Stack Application Hierarchy (Future Development)
 If a web application is built on top of this database:
 
 ```text
@@ -183,9 +183,15 @@ HOAManagement-CCINFOM/
    ```
 
 2. **Execute the SQL script**:
-   ```bash
-   mysql -u root -p < CCINFOM_S19-05_DesignCase01.sql
-   ```
+   - **Option A (Consolidated deployment)**:
+     ```bash
+     mysql -u root -p < database/CCINFOM_S19-05_DesignCase01.sql
+     ```
+   - **Option B (Modular deployment)**:
+     ```bash
+     mysql -u root -p < database/schema.sql
+     mysql -u root -p < database/seed_data.sql
+     ```
 
 3. **Verify the database installation**:
    ```sql
@@ -200,13 +206,15 @@ HOAManagement-CCINFOM/
 
 ## 📁 Repository File Inventory
 
-| File | Type | Description |
+| Path | Type | Description |
 | :--- | :--- | :--- |
-| `CCINFOM_S19-05_DesignCase01.sql` | SQL Script | Complete DDL schema creation and DML seed data for all 37 tables. |
-| `CCINFOM_S19-05_DesignCase01.png` | Image (PNG) | Visual Entity-Relationship Diagram (ERD). |
-| `CCINFOM_S19-05_DesignCase01.mwb` | Workbench File | Source MySQL Workbench 8.0 model. |
-| `CCINFOM_S19-05_DesignCase01.xlsx` | Spreadsheet | Data dictionary specifying data types, lengths, constraints, and keys. |
-| `CCINFOM_S19-05_DesignCase01.pdf` | Document (PDF) | Comprehensive Design Case project documentation. |
+| `database/CCINFOM_S19-05_DesignCase01.sql` | SQL Script | Consolidated DDL schema and DML seed data for all 37 tables. |
+| `database/schema.sql` | SQL Script | Modular DDL schema creation (tables, relationships, and constraints). |
+| `database/seed_data.sql` | SQL Script | Modular DML insert dataset for records across all 37 tables. |
+| `docs/erd/CCINFOM_S19-05_DesignCase01.png` | Image (PNG) | Visual Entity-Relationship Diagram (ERD). |
+| `docs/erd/CCINFOM_S19-05_DesignCase01.mwb` | Workbench File | Source MySQL Workbench 8.0 model. |
+| `docs/data_dictionary/CCINFOM_S19-05_DesignCase01.xlsx` | Spreadsheet | Data dictionary specifying data types, lengths, constraints, and keys. |
+| `docs/reports/CCINFOM_S19-05_DesignCase01.pdf` | Document (PDF) | Comprehensive Design Case project documentation report. |
 | `.gitignore` | Git Config | Excludes system, editor, and temporary database artifacts. |
 | `README.md` | Markdown | Master project documentation, schema mapping, and setup guide. |
 
